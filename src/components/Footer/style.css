@@ -1,0 +1,11 @@
+.footer {
+    min-height: 50px;
+    background-color: #056EDB;
+    color: white;
+    position: relative;
+    padding: 25px;
+    text-align: center;
+    font-size: 10pt;
+    font-family: 'Montserrat', sans-serif;
+}
+  
