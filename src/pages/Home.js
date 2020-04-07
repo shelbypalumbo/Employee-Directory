@@ -3,7 +3,9 @@ import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import API from "../utils/API";
+import { Link } from "react-router-dom";
 
+// Need in packagejson "homepage": "http://shelbypalumbo.github.io/Employee-Directory/index.html",
 
 export default class Home extends Component {
   state = {
@@ -18,8 +20,8 @@ export default class Home extends Component {
     })
   }
 
-  // sortAlphaAsc() { 
-  
+  // sortName() { 
+
   // }
 
 
@@ -52,20 +54,20 @@ export default class Home extends Component {
           {this.state.Employees.map((randomEmp, index) => {
             return (
               <Row key={index}>
-                 <Col size="md-3">
-                <img src={randomEmp.picture.medium} alt="profile_image"></img><hr></hr>
+                <Col size="md-3">
+                  <img src={randomEmp.picture.medium} alt="employee_image"></img>
                 </Col>
                 <Col size="md-2">
-                {randomEmp.name.first} {randomEmp.name.last}<hr></hr>
+                  {randomEmp.name.first} {randomEmp.name.last}
                 </Col>
                 <Col size="md-2">
-                {randomEmp.phone}<hr></hr>
+                  {randomEmp.phone}
                 </Col>
                 <Col style={wordBreak} size="md-3">
-                  {randomEmp.email}<hr></hr>
+                  <Link>{randomEmp.email}</Link>
                 </Col>
                 <Col size="md-1">
-                  {randomEmp.dob.age}<hr></hr>
+                  {randomEmp.dob.age}
                 </Col>
               </Row>
             )
