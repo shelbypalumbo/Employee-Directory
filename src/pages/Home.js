@@ -23,6 +23,9 @@ export default class Home extends Component {
   }
 
   render() {
+    const wordBreak = {
+      wordBreak: "break-all",
+    }
     return (
       <div>
         <Container>
@@ -56,7 +59,7 @@ export default class Home extends Component {
                 <Col size="md-2">
                 {randomEmp.location.state}<hr></hr>
                 </Col>
-                <Col size="md-3">
+                <Col style={wordBreak} size="md-3">
                   {randomEmp.email}<hr></hr>
                 </Col>
                 <Col size="md-2">
