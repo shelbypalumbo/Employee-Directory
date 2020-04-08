@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 export default class Home extends Component {
   state = {
     Employees: []
-
   }
 
   componentDidMount() {
@@ -20,11 +19,13 @@ export default class Home extends Component {
     })
   }
 
-  // sortName() { 
+  sortName() {
+   
+  }
 
-  // }
+  sortAge() {
 
-
+  }
 
   render() {
     const wordBreak = {
@@ -39,7 +40,7 @@ export default class Home extends Component {
             </Col>
             <Col size="md-2">
 
-              <h3>Name</h3><hr></hr>
+              <h3>Name <button onClick={this.sortName}><i className="fas fa-caret-down"></i></button></h3><hr></hr>
             </Col>
             <Col size="md-2">
               <h3>Phone</h3><hr></hr>
@@ -47,8 +48,8 @@ export default class Home extends Component {
             <Col size="md-3">
               <h3>E-mail</h3><hr></hr>
             </Col>
-            <Col size="md-1">
-              <h3>Age</h3><hr></hr>
+            <Col size="md-2">
+              <h3>Age <button onClick={this.sortAge}><i className="fas fa-caret-down"></i></button></h3><hr></hr>
             </Col>
           </Row>
           {this.state.Employees.map((randomEmp, index) => {
@@ -64,9 +65,9 @@ export default class Home extends Component {
                   {randomEmp.phone}
                 </Col>
                 <Col style={wordBreak} size="md-3">
-                  <Link>{randomEmp.email}</Link>
+                  <Link to={randomEmp.email}>{randomEmp.email}</Link>
                 </Col>
-                <Col size="md-1">
+                <Col size="md-2">
                   {randomEmp.dob.age}
                 </Col>
               </Row>

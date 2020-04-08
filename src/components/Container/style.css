@@ -1,9 +1,9 @@
 .cont {
     background-color: white;
-    margin-top: -35px;
     padding-top: 25px;
     overflow: scroll;
     height: 500px;
     text-align: center;
-
+    box-shadow:  2px 3px 3px rgb(128, 126, 126);
+    border-radius: 7px;
 }

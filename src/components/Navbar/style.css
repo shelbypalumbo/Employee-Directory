@@ -1,5 +1,8 @@
-.jumbotron {
+div.jumbotron {
     background-color:#056EDB;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 3px 3px  black;
+    color: white;
+    margin-bottom: 0px;
 }
