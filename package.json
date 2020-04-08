@@ -1,5 +1,6 @@
 {
   "name": "Employee-Directory",
+  "homepage": "http://shelbypalumbo.github.io/Employee-Directory/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
