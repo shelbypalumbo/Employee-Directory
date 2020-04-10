@@ -1,6 +1,5 @@
 {
   "name": "Employee-Directory",
-  "homepage": "http://shelbypalumbo.github.io/Employee-Directory/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +11,10 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
+  },
+  "engines": {
+    "node": "12.13.0",
+    "npm": "6.12.0"
   },
   "scripts": {
     "start": "react-scripts start",

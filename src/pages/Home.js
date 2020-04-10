@@ -9,23 +9,52 @@ import { Link } from "react-router-dom";
 
 export default class Home extends Component {
   state = {
-    Employees: []
+    Employees: [],
+    filteredEmployees: [],
+    sortDirection: "asc"
   }
 
   componentDidMount() {
     API.getRandomEmployeeList().then(employees => {
       console.log(employees)
-      this.setState({ Employees: employees.data.results })
+      this.setState({ Employees: employees.data.results, filteredEmployees: employees.data.results })
     })
   }
 
-  sortName() {
-   
+  sortName = () => {
+    var nameSort;
+    var direction;
+    if (this.state.sortDirection === "asc") {
+      nameSort = this.state.Employees.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1) 
+    direction = "dsc";
+    } else {
+      nameSort = this.state.Employees.sort((a, b) => (a.name.first < b.name.first) ? 1 : -1)
+    direction = "asc";
+    }
+    this.setState({ Employees: nameSort, sortDirection: direction })
   }
 
-  sortAge() {
-
+  sortAge = () => {
+    var ageSort;
+    var direction;
+    if (this.state.sortDirection === "asc") {
+      ageSort = this.state.Employees.sort((a, b) => (a.dob.age > b.dob.age) ? 1 : -1)
+    direction = "dsc";
+    } else {
+      ageSort = this.state.Employees.sort((a, b) => (a.dob.age < b.dob.age) ? 1 : -1)
+    direction = "asc";
+    }
+    this.setState({ Employees: ageSort, sortDirection: direction })
   }
+
+  // filter = () => {
+  //   var gender;)
+  //   var filtered = this.state.filteredEmployees.map((filteredEmps, index) => {
+  //     if (filteredEmps.gender === "female"){
+
+  //     }
+  // }
+
 
   render() {
     const wordBreak = {
@@ -65,7 +94,7 @@ export default class Home extends Component {
                   {randomEmp.phone}
                 </Col>
                 <Col style={wordBreak} size="md-3">
-                  <Link to={randomEmp.email}>{randomEmp.email}</Link>
+                  <Link to={"/"}>{randomEmp.email}</Link>
                 </Col>
                 <Col size="md-2">
                   {randomEmp.dob.age}
