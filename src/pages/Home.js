@@ -10,7 +10,8 @@ export default class Home extends Component {
   state = {
     Employees: [],
     sortDirection: "asc",
-    filteredEmployees: []
+    filteredEmployees: [],
+    search: ""
   }
 
   componentDidMount() {
@@ -46,15 +47,18 @@ export default class Home extends Component {
     this.setState({ Employees: ageSort, sortDirection: direction })
   }
 
-  findEmployee = () => {
-    var filteredEmp;
-    filteredEmp = this.state.Employees.filter(employee => employee.name.first.value)
-    this.setState({ Employees: filteredEmp })
-  }
+  // findEmployee = () => {
+  //   var filteredEmp;
+  //   filteredEmp = this.state.Employees.filter(employee => employee ==== employee.name.first.value)
+  //   this.setState({ Employees: filteredEmp })
+  // }
 
   handleInputChange = event => {
     this.setState({ search: event.target.value });
-  };
+    var filteredEmp;
+      filteredEmp = this.state.Employees.filter(employee => employee === employee.name.first.value)
+      this.setState({ Employees: filteredEmp })
+    };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -63,7 +67,7 @@ export default class Home extends Component {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        this.setState({ results: res.data.message, error: "" });
+        this.setState({ randomEmp: res.data.message, error: "" });
       })
       .catch(err => this.setState({ error: err.message }));
   };
@@ -77,7 +81,10 @@ export default class Home extends Component {
       <div>
         <Container>
           <Row>
-            <Search/>
+            <Search
+                 handleFormSubmit={this.handleFormSubmit}
+                 handleInputChange={this.handleInputChange}
+                 Employees={this.state.Employees}/>
           </Row>
           <Row>
             <Col size="md-3">
