@@ -4,14 +4,13 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-
-// Need in packagejson "homepage": "http://shelbypalumbo.github.io/Employee-Directory/index.html",
+import Search from "../components/Search";
 
 export default class Home extends Component {
   state = {
     Employees: [],
-    filteredEmployees: [],
-    sortDirection: "asc"
+    sortDirection: "asc",
+    filteredEmployees: []
   }
 
   componentDidMount() {
@@ -25,11 +24,11 @@ export default class Home extends Component {
     var nameSort;
     var direction;
     if (this.state.sortDirection === "asc") {
-      nameSort = this.state.Employees.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1) 
-    direction = "dsc";
+      nameSort = this.state.Employees.sort((a, b) => (a.name.last > b.name.last) ? 1 : -1)
+      direction = "dsc";
     } else {
-      nameSort = this.state.Employees.sort((a, b) => (a.name.first < b.name.first) ? 1 : -1)
-    direction = "asc";
+      nameSort = this.state.Employees.sort((a, b) => (a.name.last < b.name.last) ? 1 : -1)
+      direction = "asc";
     }
     this.setState({ Employees: nameSort, sortDirection: direction })
   }
@@ -39,21 +38,35 @@ export default class Home extends Component {
     var direction;
     if (this.state.sortDirection === "asc") {
       ageSort = this.state.Employees.sort((a, b) => (a.dob.age > b.dob.age) ? 1 : -1)
-    direction = "dsc";
+      direction = "dsc";
     } else {
       ageSort = this.state.Employees.sort((a, b) => (a.dob.age < b.dob.age) ? 1 : -1)
-    direction = "asc";
+      direction = "asc";
     }
     this.setState({ Employees: ageSort, sortDirection: direction })
   }
 
-  // filter = () => {
-  //   var gender;)
-  //   var filtered = this.state.filteredEmployees.map((filteredEmps, index) => {
-  //     if (filteredEmps.gender === "female"){
+  findEmployee = () => {
+    var filteredEmp;
+    filteredEmp = this.state.Employees.filter(employee => employee.name.first.value)
+    this.setState({ Employees: filteredEmp })
+  }
 
-  //     }
-  // }
+  handleInputChange = event => {
+    this.setState({ search: event.target.value });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.getRandomEmployeeList(this.state.search)
+      .then(res => {
+        if (res.data.status === "error") {
+          throw new Error(res.data.message);
+        }
+        this.setState({ results: res.data.message, error: "" });
+      })
+      .catch(err => this.setState({ error: err.message }));
+  };
 
 
   render() {
@@ -64,11 +77,13 @@ export default class Home extends Component {
       <div>
         <Container>
           <Row>
+            <Search/>
+          </Row>
+          <Row>
             <Col size="md-3">
               <h3>Image</h3><hr></hr>
             </Col>
             <Col size="md-2">
-
               <h3>Name <button onClick={this.sortName}><i className="fas fa-caret-down"></i></button></h3><hr></hr>
             </Col>
             <Col size="md-2">
