@@ -1,4 +1,5 @@
-{ "homepage": "http://shelbypalumbo.github.io/Employee-Directory",
+{
+  "homepage": "http://shelbypalumbo.github.io/Employee-Directory",
   "name": "Employee-Directory",
   "version": "0.1.0",
   "private": true,
@@ -39,7 +40,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies":{
+  "devDependencies": {
     "gh-pages": "^2.2.0"
   }
 }
