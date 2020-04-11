@@ -10,7 +10,18 @@ https://shelbypalumbo.github.io/Employee-Directory/
 As a business owner, I want the ability to view and sort my employees, so that I can retreive their personal information easier.
 
 ## Usage
-Users of the Employee Directory can view all employees upon page load, sort employees by first name in ascending and descending order, as well as search employees by name.
+Users of the Employee Directory can view all employees upon page load, sort employees by last name in ascending and descending order, as well as search employees by name.
 
 #### Main Page
-![Main View](./public/reademeImg/interface.png)
+![Main View](./public/reademeImg/ui.png)
+
+
+#### Employee name sort by ascending and descending order
+
+![NameAsc View](./public/reademeImg/ascName.png)
+![NameDsc View](./public/reademeImg/dscName.png)
+
+#### Employee age sort by ascending and descending order
+
+![AgeAsc View](./public/reademeImg/ascAge.png)
+![AgeDsc View](./public/reademeImg/dscAge.png)

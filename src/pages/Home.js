@@ -110,7 +110,7 @@ export default class Home extends Component {
                   <img src={randomEmp.picture.medium} alt="employee_image"></img>
                 </Col>
                 <Col size="md-2">
-                  {randomEmp.name.first} {randomEmp.name.last}
+                  {randomEmp.name.last}, {randomEmp.name.first}
                 </Col>
                 <Col size="md-2">
                   {randomEmp.phone}
