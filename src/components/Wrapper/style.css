@@ -15,8 +15,7 @@ img {
 }
 
 div.row:nth-child(even) {
-  /* background-color: rgb(243, 243, 250); */
-  background-color: rgb(248, 246, 246);
+  background-color: rgb(243, 243, 250);
 }
 
 div.row {

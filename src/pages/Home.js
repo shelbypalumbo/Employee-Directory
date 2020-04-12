@@ -6,21 +6,23 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import Search from "../components/Search";
 
+
 export default class Home extends Component {
   state = {
     Employees: [],
     sortDirection: "asc",
-    filteredEmployees: [],
-    search: ""
+    search: "",
+    error: ""
   }
 
+  // When component mounts, the list of random employees appear
   componentDidMount() {
     API.getRandomEmployeeList().then(employees => {
       console.log(employees)
-      this.setState({ Employees: employees.data.results, filteredEmployees: employees.data.results })
+      this.setState({ Employees: employees.data.results })
     })
   }
-
+  // Sort employees by last name, asc and dsc order
   sortName = () => {
     var nameSort;
     var direction;
@@ -33,7 +35,7 @@ export default class Home extends Component {
     }
     this.setState({ Employees: nameSort, sortDirection: direction })
   }
-
+// Sort employees by age, asc and dsc order
   sortAge = () => {
     var ageSort;
     var direction;
@@ -47,30 +49,23 @@ export default class Home extends Component {
     this.setState({ Employees: ageSort, sortDirection: direction })
   }
 
+  // Non-functional code
   // findEmployee = () => {
   //   var filteredEmp;
-  //   filteredEmp = this.state.Employees.filter(employee => employee ==== employee.name.first.value)
+  //   filteredEmp = this.state.Employees.filter(employee => employee === employee.name.first.value)
   //   this.setState({ Employees: filteredEmp })
   // }
+  // handleInputChange = event => {
+  //   this.setState({ search: event.target.value });
+  // };
 
   handleInputChange = event => {
     this.setState({ search: event.target.value });
     var filteredEmp;
-      filteredEmp = this.state.Employees.filter(employee => employee === employee.name.first.value)
-      this.setState({ Employees: filteredEmp })
-    };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    API.getRandomEmployeeList(this.state.search)
-      .then(res => {
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        this.setState({ randomEmp: res.data.message, error: "" });
-      })
-      .catch(err => this.setState({ error: err.message }));
+    filteredEmp = this.state.Employees.filter(employee => employee === employee.name.first.value)
+    this.setState({ Employees: filteredEmp })
   };
+
 
 
   render() {
@@ -82,9 +77,8 @@ export default class Home extends Component {
         <Container>
           <Row>
             <Search
-                 handleFormSubmit={this.handleFormSubmit}
-                 handleInputChange={this.handleInputChange}
-                 Employees={this.state.Employees}/>
+              handleInputChange={this.handleInputChange}
+              Employees={this.state.Employees} />
           </Row>
           <Row>
             <Col size="md-3">
