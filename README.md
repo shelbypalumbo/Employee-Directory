@@ -13,23 +13,28 @@ Users of the Employee Directory can view all employees upon page load, sort empl
 
 ### Main Page
 ![Main View](./public/reademeImg/ui.png)
+<hr>
 
 ### Employee search
 ![Search View](./public/reademeImg/findEmp.png)
+<hr>
 
 ### Employee name sort by ascending and descending order
 
 #### Ascending last names
 ![NameAsc View](./public/reademeImg/ascName.png)
+<hr>
 
 #### Descending last names
 ![NameDsc View](./public/reademeImg/dscName.png)
-
+<hr>
 
 ### Employee age sort by ascending and descending order
 
 #### Ascending employee ages
 ![AgeAsc View](./public/reademeImg/ascAge.png)
+<hr>
 
 #### Descending employee ages
 ![AgeDsc View](./public/reademeImg/dscAge.png)
+<hr>
