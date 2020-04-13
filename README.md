@@ -1,20 +1,21 @@
 # Employee Directory
-An employee directory application using React, allowing users to view all of their employees information on one page. 
+An employee search application using React, allowing users to view all of their employees information on one page. 
 <br>
 
 https://shelbypalumbo.github.io/Employee-Directory/
 
-*** Work in progress - filtering employees by name through user search ***
 
 ## User Story
-As a business owner, I want the ability to view and sort my employees, so that I can retreive their personal information easier.
+As a business owner, I want the ability to view, sort, and search my employee database, so that I can retreive their personal information easier.
 
 ## Usage
-Users of the Employee Directory can view all employees upon page load, sort employees by last name in ascending and descending order, as well as search employees by name.
+Users of the Employee Directory can view all employees upon page load, sort employees by last name in ascending and descending order, as well as search for employees by name.
 
 ### Main Page
 ![Main View](./public/reademeImg/ui.png)
 
+### Employee search
+![Search View](./public/reademeImg/findEmp.png)
 
 ### Employee name sort by ascending and descending order
 

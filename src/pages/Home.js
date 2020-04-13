@@ -35,7 +35,7 @@ export default class Home extends Component {
     }
     this.setState({ Employees: nameSort, sortDirection: direction })
   }
-// Sort employees by age, asc and dsc order
+  // Sort employees by age, asc and dsc order
   sortAge = () => {
     var ageSort;
     var direction;
@@ -49,23 +49,34 @@ export default class Home extends Component {
     this.setState({ Employees: ageSort, sortDirection: direction })
   }
 
-  // Non-functional code
-  // findEmployee = () => {
-  //   var filteredEmp;
-  //   filteredEmp = this.state.Employees.filter(employee => employee === employee.name.first.value)
-  //   this.setState({ Employees: filteredEmp })
-  // }
-  // handleInputChange = event => {
-  //   this.setState({ search: event.target.value });
-  // };
+//Employee search function
+  findEmployee = () => {
+    var filteredEmp;
+    var filteredName = this.state.search;
+    filteredEmp = this.state.Employees.filter(function(employee){
+      console.log(employee.name.first)
+      console.log(filteredName)
+      filteredName = filteredName.toLowerCase()
+      filteredName = filteredName.charAt(0).toUpperCase() + filteredName.slice(1)
+      return filteredName === employee.name.first
+    })
+      return this.setState({ Employees: filteredEmp })
+  }
 
   handleInputChange = event => {
+    console.log(event.target.value)
+    console.log(this.state.search)
     this.setState({ search: event.target.value });
-    var filteredEmp;
-    filteredEmp = this.state.Employees.filter(employee => employee === employee.name.first.value)
-    this.setState({ Employees: filteredEmp })
-  };
+  }
 
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(event.target.value)
+    console.log(this.state.search)
+    this.findEmployee();
+   
+  };
 
 
   render() {
@@ -77,6 +88,8 @@ export default class Home extends Component {
         <Container>
           <Row>
             <Search
+              findEmployee={this.findEmployee}
+              handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}
               Employees={this.state.Employees} />
           </Row>
