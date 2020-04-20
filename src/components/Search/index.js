@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 
-
 function Search(props) {
   return (
     <form className="search">
@@ -16,11 +15,6 @@ function Search(props) {
           placeholder="Type in a name to search..."
           id="index"
         />
-        <button type="submit"
-          onClick={props.handleFormSubmit}
-          className="btn btn-primary">
-          Search
-        </button>
       </div>
     </form>
   );
