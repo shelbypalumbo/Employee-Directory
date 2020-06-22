@@ -41,7 +41,7 @@ Users of the Employee Directory can view all employees upon page load, sort empl
 
 ### Employee Age Sort by Ascending and Descending Order
 
-#### Ascending employee ages
+#### Ascending Employee Ages
 
 ![AgeAsc View](./public/reademeImg/ascAge.png)
 
