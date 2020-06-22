@@ -13,33 +13,33 @@ As a business owner, I want the ability to view, sort, and search my employee da
 
 Users of the Employee Directory can view all employees upon page load, sort employees by last name, or age, in ascending and descending order, as well as search for employees by their first or last name.
 
-### Main Page
+### Landing Page
 
 ![Main View](./public/reademeImg/ui.png)
 
 <hr>
 
-### Employee search
+### Employee Search
 
 ![Search View](./public/reademeImg/findEmployee.png)
 
 <hr>
 
-### Employee name sort by ascending and descending order
+### Employee Name Sort by Ascending and Descending Order
 
-#### Ascending last names
+#### Ascending Last Names
 
 ![NameAsc View](./public/reademeImg/ascName.png)
 
 <hr>
 
-#### Descending last names
+#### Descending Last Names
 
 ![NameDsc View](./public/reademeImg/dscName.png)
 
 <hr>
 
-### Employee age sort by ascending and descending order
+### Employee Age Sort by Ascending and Descending Order
 
 #### Ascending employee ages
 
@@ -47,7 +47,7 @@ Users of the Employee Directory can view all employees upon page load, sort empl
 
 <hr>
 
-#### Descending employee ages
+#### Descending Employee Ages
 
 ![AgeDsc View](./public/reademeImg/dscAge.png)
 
