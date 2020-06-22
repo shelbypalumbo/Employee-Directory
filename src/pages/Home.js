@@ -65,48 +65,28 @@ export default class Home extends Component {
     var filteredEmp;
     var filteredName = this.state.search;
     filteredEmp = this.state.Employees.filter(function(employee) {
-      console.log(employee.name.first);
-      console.log(filteredName);
+      console.log("filteredName", filteredName);
       filteredName = filteredName.toLowerCase();
       filteredName =
         filteredName.charAt(0).toUpperCase() + filteredName.slice(1);
-      return filteredName === employee.name.first;
+      return (
+        filteredName === employee.name.first ||
+        filteredName === employee.name.last
+      );
     });
     return this.setState({ filteredEmployees: filteredEmp });
   };
 
-  // nameSearchTimer = event => {
-  //   const name = event.target.value;
-  //   if (name == "") {
-  //     this.setState({ filteredEmployees: this.state.Employees });
-  //   } else {
-  //     this.findEmployee();
-  //   }
-  // };
-
-  // handleInputChange = event => {
-  //   console.log(this.state.search);
-  //   console.log(event.target.value);
-
-  //   this.setState({ search: event.target.value });
-  //   setTimeout(this.state.search, 60000);
-  //   if (event.target.value == "") {
-  //     this.setState({ filteredEmployees: this.state.Employees });
-  //   } else {
-  //     this.setState({ search: event.target.value }, () => {
-  //       this.findEmployee();
-  //     });
-  //   }
-  // };
-
-  //Working portion
+  //Handles the input change value by setting the search state to that value
   handleInputChange = event => {
     console.log(event.target.value);
     console.log(this.state.search);
-    if (event.target.value == "") {
+    //If there is no input value, the array of the original Employees will be listed
+    if (event.target.value === "") {
       this.setState({ filteredEmployees: this.state.Employees });
     } else {
       this.setState({ search: event.target.value }, () => {
+        //Take the search input value as an argument for the findEmployee function
         this.findEmployee();
       });
     }

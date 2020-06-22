@@ -12,7 +12,7 @@ function Search(props) {
           name="Employees"
           type="text"
           className="form-control"
-          placeholder="Type in a name to search..."
+          placeholder="Enter a name to search..."
           id="index"
         />
       </div>
